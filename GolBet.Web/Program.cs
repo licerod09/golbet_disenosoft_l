@@ -5,6 +5,11 @@ using GolBet.Services.Implementations;
 using GolBet.Services.Interfaces;
 using GolBet.Services.Mapping;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
+
+var culture = new CultureInfo("es-CO");
+CultureInfo.DefaultThreadCurrentCulture = culture;
+CultureInfo.DefaultThreadCurrentUICulture = culture;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +22,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Open generic registration: one line, a repository for every entity
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<ITeamService, TeamService>();
 
 // Specific repositories
 builder.Services.AddScoped<IMatchRepository, MatchRepository>();
