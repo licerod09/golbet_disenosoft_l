@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace GolBet.Web.Views.Matches
-{
-    public class CreateModel : PageModel
-    {
-        public void OnGet()
-        {
-        }
-    }
-}
-
+﻿@* Views/Matches/Create.cshtml *@ 
+@model GolBet.Services.DTOs.MatchFormDto 
+@{ ViewData["Title"] = "Nuevo partido"; } 
+  
+<h2 class="mb-4">Nuevo partido</h2> 
+<partial name="_MatchForm" model="Model" /> 
+  
+@section Scripts { 
+    <partial name="_ValidationScriptsPartial" /> 
+} 

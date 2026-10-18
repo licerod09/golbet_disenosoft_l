@@ -1,10 +1,13 @@
-﻿// GolBet.Web/Controllers/TeamsController.cs 
+﻿// GolBet.Web/Controllers/TeamsController.cs  — proteger el controller COMPLETO
+using GolBet.Repositories.Data;   
 using GolBet.Services.DTOs;
 using GolBet.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GolBet.Web.Controllers;
 
+[Authorize(Roles = DbSeeder.AdminRole)]
 public class TeamsController : Controller
 {
     private readonly ITeamService _teamService;
